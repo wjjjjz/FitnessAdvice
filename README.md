@@ -10,7 +10,7 @@
 - `config.js`：配置大模型 API Key 和接口地址
 - `config.example.js`：配置示例（可复制为 `config.js` 使用）
 - `package.json` / `package-lock.json`：npm 依赖说明
-- `start.bat` / `start.sh`：本地启动静态服务器的脚本
+- `start.sh`：本地启动静态服务器的脚本
 
 > 说明：如果你只打算直接用浏览器打开 `index.html` 体验功能，`start.bat` / `start.sh` 不是必须的。
 
@@ -24,7 +24,7 @@
    - 复制 `config.example.js` 为 `config.js`
    - 在 `config.js` 中填写你的 API Key 和 接口地址
 3. 启动本地静态服务器（任选一种方式）：
-   - Windows：双击 `start.bat`
+   - Windows：命令行输入python -m http.server 8000
    - macOS / Linux：在项目目录执行 `./start.sh`
    - 或使用你自己的静态服务器（如 VS Code Live Server、`npx serve` 等）
 4. 浏览器访问终端输出的地址（通常是 `http://localhost:8000` 或类似端口），即可使用页面。
