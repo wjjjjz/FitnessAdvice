@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI健身建议生成器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 主界面 -->
+        <div id="mainView" class="main-view">
+            <div class="header">
+                <h1>AI健身建议生成器</h1>
+                <p class="subtitle">上传您的照片，获取专业的健身建议</p>
+            </div>
+
+            <div class="upload-section">
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                <button id="uploadBtn" class="upload-btn">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <span>上传照片</span>
+                </button>
+                <p class="hint">支持JPG、PNG格式，最大5MB</p>
+                <div class="options-row">
+                    <label class="compact-toggle">
+                        <input type="checkbox" id="compactMode">
+                        <span class="label-main">精简模式</span>
+                        <!-- <span class="label-desc">精简模式</span> -->
+                    </label>
+                </div>
+            </div>
+
+            <!-- 上传进度 -->
+            <div id="uploadProgress" class="upload-progress" style="display: none;">
+                <div class="progress-info">
+                    <span id="fileName"></span>
+                    <span id="fileSize"></span>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+                <div class="progress-actions">
+                    <span id="progressText">0%</span>
+                    <button id="cancelBtn" class="cancel-btn">取消</button>
+                </div>
+            </div>
+
+            <!-- 加载动画 -->
+            <div id="loadingView" class="loading-view" style="display: none;">
+                <div class="spinner"></div>
+                <p>AI正在分析您的照片并生成健身建议...</p>
+            </div>
+
+            <!-- 结果展示 -->
+            <div id="resultView" class="result-view" style="display: none;">
+                <div class="result-header">
+                    <h2>您的专属健身建议</h2>
+                    <div class="action-buttons">
+                        <button id="downloadWord" class="action-btn">
+                            <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                            导出Word
+                        </button>
+                        <button id="downloadPng" class="action-btn">导出PNG</button>
+                        <button id="newAnalysis" class="action-btn primary">重新分析</button>
+                    </div>
+                </div>
+                <div id="resultContent" class="result-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.8.2/docx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
